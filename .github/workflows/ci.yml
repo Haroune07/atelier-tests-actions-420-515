@@ -1,0 +1,17 @@
+#commentaire
+name: "Compilation du projet"
+on: 
+  push:
+jobs:
+  compilation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Va chercher le code sourcce"
+        uses: actions/checkout@v5
+      - name: "Setup up JDK 25"
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distributions: 'temurin'
+      - name: Compile le projet
+        run: './mvnw compile'
