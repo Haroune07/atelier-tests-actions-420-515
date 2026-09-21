@@ -78,8 +78,9 @@ class CalculatriceTest {
     @Test
     void maxRetourneLePlusGrandDesDeuxNombres() {
         // TODO: Arrange - Act - Assert
+        int res = calculatrice.max(7, 3);
         // Vérifiez que max(7, 3) retourne 7
-        fail("Test à compléter");
+        assertEquals(res, 7);
     }
 
     // ------------------------------------------------------------------
@@ -92,14 +93,20 @@ class CalculatriceTest {
         //  - estPair(4) doit être vrai
         //  - estPair(7) doit être faux
         //  - estPair(0) doit être vrai
-        fail("Test à compléter");
+
+        assertAll(
+            () -> assertTrue(calculatrice.estPair(4)),
+            () -> assertFalse(calculatrice.estPair(7)),
+            () -> assertTrue(calculatrice.estPair(0))
+        );
     }
 
     @Test
     void diviserParZeroLanceUneException() {
         // TODO: utilisez assertThrows(ArithmeticException.class, () -> ...)
         // pour vérifier que diviser(10, 0) lance bien une ArithmeticException.
-        fail("Test à compléter");
+        
+        assertThrows(ArithmeticException.class, () -> calculatrice.diviser(3, 0));
     }
 
     // ------------------------------------------------------------------
@@ -111,7 +118,8 @@ class CalculatriceTest {
     void estPremierRetourneVraiPourLesNombresPremiersConnus(int nombre) {
         // TODO: Act + Assert
         // Vérifiez que estPremier(nombre) retourne true pour chacune des valeurs fournies.
-        fail("Test à compléter");
+        
+        assertTrue(calculatrice.estPremier(nombre));
     }
 
     @ParameterizedTest
@@ -124,7 +132,7 @@ class CalculatriceTest {
     void estPremierGereLesCasLimites(int nombre, boolean attendu) {
         // TODO: Act + Assert
         // Vérifiez que estPremier(nombre) correspond bien à la valeur "attendu".
-        fail("Test à compléter");
+        assertEquals(calculatrice.estPremier(nombre), attendu);
     }
 
     @Test
@@ -132,6 +140,6 @@ class CalculatriceTest {
         // TODO: Arrange - Act - Assert
         // Cas limite : que se passe-t-il quand on divise un nombre négatif ?
         // Vérifiez que diviser(-10, 2) retourne -5.
-        fail("Test à compléter");
+        assertEquals(calculatrice.diviser(-10, 2), -5);
     }
 }
