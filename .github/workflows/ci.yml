@@ -20,12 +20,12 @@ jobs:
 
       - name: 'Execution tests'
         run: './mvnw test'
-      
-      - name: 'empacter le projet'
-        run: './mvnw package'
 
       - name: publier le .jar en artefact
         uses: actions/upload-artifact@v5
         with:
           name: application.jar
           path: target/*.jar
+      
+      - name: 'empacter le projet'
+        run: './mvnw package'
