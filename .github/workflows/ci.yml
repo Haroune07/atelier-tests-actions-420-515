@@ -17,3 +17,6 @@ jobs:
         run: chmod +x mvnw
       - name: Compile le projet
         run: './mvnw compile'
+
+      - name: 'Execution tests'
+        run: './mvnw test -D CalculatriceTest#additionnerDeuxNombresPositifs'
